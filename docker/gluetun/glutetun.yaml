@@ -14,7 +14,7 @@ services:
       - 8388:8388/tcp # Shadowsocks
       - 8388:8388/udp # Shadowsocks
     volumes:
-      - /yourpath:/gluetun
+      - /opt/docker/gluetun/config:/gluetun
     environment:
       # See https://github.com/qdm12/gluetun-wiki/tree/main/setup#setup
       - VPN_SERVICE_PROVIDER=ivpn
@@ -27,6 +27,8 @@ services:
       # - WIREGUARD_ADDRESSES=10.64.222.21/32
       # Timezone for accurate log times
       - TZ=Australia/West
+      # Server countries - a comma seperated list of counties
+      - SERVER_COUNTRIES=Australia
       # Server list updater
       # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/servers.md#update-the-vpn-servers-list
-      - UPDATER_PERIOD=
+      - UPDATER_PERIOD=0
