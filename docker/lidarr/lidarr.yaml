@@ -1,0 +1,17 @@
+---
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Australia/West
+    volumes:
+      - /opt/docker/lidarr/data:/config
+      - /mnt/data:/mnt/data
+    ports:
+      - 8686:8686
+    extra_hosts:
+      - "pugwash:192.168.0.250"
+    restart: unless-stopped

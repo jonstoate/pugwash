@@ -1,0 +1,17 @@
+---
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Australia/West
+    volumes:
+      - /opt/docker/radarr/config:/config
+      - /mnt/data:/mnt/data
+    ports:
+      - 7878:7878
+    extra_hosts:
+      - pugwash:192.168.0.250
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+---
+services:
+  sftpgo:
+    image: drakkan/sftpgo:latest
+    container_name: sftpgo
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Australia/West
+    volumes:
+      - /mnt/data:/srv/sftpgo
+      - /opt/container/sftpgo/data:/var/lib/sftpd
+    ports:
+      - 8000:8080
+      - 2022:2022
+    restart: unless-stopped
+
